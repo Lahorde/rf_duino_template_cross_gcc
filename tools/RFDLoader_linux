@@ -1,0 +1,2 @@
+#!/bin/bash
+WINEPREFIX=~/.wine_installs/win64 WINEARCH=win64 /usr/bin/wine ../rfduino_core/RFDLoader.exe $1 com1 $3

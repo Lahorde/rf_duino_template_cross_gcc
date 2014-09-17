@@ -3,6 +3,9 @@
 	<storageModule moduleId="org.eclipse.cdt.core.settings">
 		<cconfiguration id="cdt.managedbuild.config.gnu.cross.exe.debug.555687401">
 			<storageModule buildSystemId="org.eclipse.cdt.managedbuilder.core.configurationDataProvider" id="cdt.managedbuild.config.gnu.cross.exe.debug.555687401" moduleId="org.eclipse.cdt.core.settings" name="cortex_m0_release">
+				<macros>
+					<stringMacro name="RF_DUINO_TOOLCHAIN_PATH" type="VALUE_PATH_DIR" value="&quot;/home/remi/Outils Developpement/Embarqué/Arduino/IDE/arduino-1.5.7/hardware/tools/gcc-arm-none-eabi-4.8.3-2014q1/bin/&quot;"/>
+				</macros>
 				<externalSettings/>
 				<extensions>
 					<extension id="org.eclipse.cdt.core.GmakeErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
@@ -14,11 +17,11 @@
 				</extensions>
 			</storageModule>
 			<storageModule moduleId="cdtBuildSystem" version="4.0.0">
-				<configuration artifactName="${ProjName}" buildArtefactType="org.eclipse.cdt.build.core.buildArtefactType.exe" buildProperties="org.eclipse.cdt.build.core.buildType=org.eclipse.cdt.build.core.buildType.debug,org.eclipse.cdt.build.core.buildArtefactType=org.eclipse.cdt.build.core.buildArtefactType.exe" cleanCommand="rm -rf" description="" id="cdt.managedbuild.config.gnu.cross.exe.debug.555687401" name="cortex_m0_release" parent="cdt.managedbuild.config.gnu.cross.exe.debug" postbuildStep="/home/remi/Outils\ Developpement/Embarqué/Arduino/IDE/arduino-1.5.2/hardware/tools/g++_arm_none_eabi/bin/arm-none-eabi-objcopy -O ihex ./${ProjName} ./${ProjName}.hex;  ../tools/RFDLoader_linux -q /dev/ttyUSB0 ./${ProjName}.hex">
+				<configuration artifactName="${ProjName}" buildArtefactType="org.eclipse.cdt.build.core.buildArtefactType.exe" buildProperties="org.eclipse.cdt.build.core.buildType=org.eclipse.cdt.build.core.buildType.debug,org.eclipse.cdt.build.core.buildArtefactType=org.eclipse.cdt.build.core.buildArtefactType.exe" cleanCommand="rm -rf" description="" id="cdt.managedbuild.config.gnu.cross.exe.debug.555687401" name="cortex_m0_release" parent="cdt.managedbuild.config.gnu.cross.exe.debug" postbuildStep="arm-none-eabi-objcopy -O ihex ./${ProjName} ./${ProjName}.hex;  ../tools/RFDLoader_linux -q /dev/ttyUSB0 ./${ProjName}.hex" prebuildStep="">
 					<folderInfo id="cdt.managedbuild.config.gnu.cross.exe.debug.555687401." name="/" resourcePath="">
 						<toolChain id="cdt.managedbuild.toolchain.gnu.cross.exe.debug.431343774" name="Cross GCC" superClass="cdt.managedbuild.toolchain.gnu.cross.exe.debug">
 							<option id="cdt.managedbuild.option.gnu.cross.prefix.59931614" name="Prefix" superClass="cdt.managedbuild.option.gnu.cross.prefix" value="arm-none-eabi-" valueType="string"/>
-							<option id="cdt.managedbuild.option.gnu.cross.path.144195108" name="Path" superClass="cdt.managedbuild.option.gnu.cross.path" value="/home/remi/Outils Developpement/Embarqué/Arduino/IDE/arduino-1.5.7/hardware/tools/gcc-arm-none-eabi-4.8.3-2014q1/bin/" valueType="string"/>
+							<option id="cdt.managedbuild.option.gnu.cross.path.144195108" name="Path" superClass="cdt.managedbuild.option.gnu.cross.path" value="/home/remi/Outils Developpement/Embarqué/Arduino/IDE/arduino-1.5.7/hardware/tools/gcc-arm-none-eabi-4.8.3-2014q1/bin" valueType="string"/>
 							<targetPlatform archList="all" binaryParser="org.eclipse.cdt.core.ELF" id="cdt.managedbuild.targetPlatform.gnu.cross.368441899" isAbstract="false" osList="all" superClass="cdt.managedbuild.targetPlatform.gnu.cross"/>
 							<builder buildPath="${workspace_loc:/rf_duino_template}/Debug" id="cdt.managedbuild.builder.gnu.cross.913999681" keepEnvironmentInBuildfile="false" managedBuildOn="true" name="Gnu Make Builder" superClass="cdt.managedbuild.builder.gnu.cross">
 								<outputEntries>
