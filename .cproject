@@ -14,7 +14,7 @@
 				</extensions>
 			</storageModule>
 			<storageModule moduleId="cdtBuildSystem" version="4.0.0">
-				<configuration artifactName="${ProjName}" buildArtefactType="org.eclipse.cdt.build.core.buildArtefactType.exe" buildProperties="org.eclipse.cdt.build.core.buildType=org.eclipse.cdt.build.core.buildType.debug,org.eclipse.cdt.build.core.buildArtefactType=org.eclipse.cdt.build.core.buildArtefactType.exe" cleanCommand="rm -rf" description="" id="cdt.managedbuild.config.gnu.cross.exe.debug.555687401" name="cortex_m0_release" parent="cdt.managedbuild.config.gnu.cross.exe.debug" postbuildStep="arm-none-eabi-objcopy -O ihex ./${ProjName} ./${ProjName}.hex;  ../tools/RFDLoader_linux -q /dev/ttyUSB0 ./${ProjName}.hex" prebuildStep="">
+				<configuration artifactName="${ProjName}" buildArtefactType="org.eclipse.cdt.build.core.buildArtefactType.exe" buildProperties="org.eclipse.cdt.build.core.buildType=org.eclipse.cdt.build.core.buildType.debug,org.eclipse.cdt.build.core.buildArtefactType=org.eclipse.cdt.build.core.buildArtefactType.exe" cleanCommand="rm -rf" description="" id="cdt.managedbuild.config.gnu.cross.exe.debug.555687401" name="cortex_m0_release" parent="cdt.managedbuild.config.gnu.cross.exe.debug" postbuildStep="arm-none-eabi-objcopy -O ihex ./${ProjName} ./${ProjName}.hex;  ../rfduino_core/RFDLoader_linux -q /dev/ttyUSB0 ./${ProjName}.hex" prebuildStep="">
 					<folderInfo id="cdt.managedbuild.config.gnu.cross.exe.debug.555687401." name="/" resourcePath="">
 						<toolChain id="cdt.managedbuild.toolchain.gnu.cross.exe.debug.431343774" name="Cross GCC" superClass="cdt.managedbuild.toolchain.gnu.cross.exe.debug">
 							<option id="cdt.managedbuild.option.gnu.cross.prefix.59931614" name="Prefix" superClass="cdt.managedbuild.option.gnu.cross.prefix" value="arm-none-eabi-" valueType="string"/>
@@ -78,7 +78,7 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/rfduino_core/variants/RFduino}&quot;"/>
 								</option>
 								<option id="gnu.cpp.link.option.other.1419223843" name="Other options (-Xlinker [option])" superClass="gnu.cpp.link.option.other"/>
-								<option id="gnu.cpp.link.option.flags.1241196656" name="Linker flags" superClass="gnu.cpp.link.option.flags" value="-Os -Wl,--gc-sections -mcpu=cortex-m0 -mthumb -D__RFduino__ -T../linker_scripts/gcc/RFduino.ld -Wl,-Map,${ProjName}.map" valueType="string"/>
+								<option id="gnu.cpp.link.option.flags.1241196656" name="Linker flags" superClass="gnu.cpp.link.option.flags" value="-Os -Wl,--gc-sections -mcpu=cortex-m0 -mthumb -D__RFduino__ -T../rfduino_core/variants/RFduino/linker_scripts/gcc/RFduino.ld -Wl,-Map,${ProjName}.map" valueType="string"/>
 								<option id="gnu.cpp.link.option.userobjs.1552702992" name="Other objects" superClass="gnu.cpp.link.option.userobjs"/>
 								<inputType id="cdt.managedbuild.tool.gnu.cpp.linker.input.2022428247" superClass="cdt.managedbuild.tool.gnu.cpp.linker.input">
 									<additionalInput kind="additionalinputdependency" paths="$(USER_OBJS)"/>
@@ -99,14 +99,6 @@
 							</tool>
 						</toolChain>
 					</folderInfo>
-					<fileInfo id="cdt.managedbuild.config.gnu.cross.exe.debug.555687401.1116436343" name="RFDLoader_linux" rcbsApplicability="disable" resourcePath="tools/RFDLoader_linux" toolsToInvoke="">
-						<tool customBuildStep="true" id="org.eclipse.cdt.managedbuilder.ui.rcbs.1149337560" name="Resource Custom Build Step">
-							<inputType id="org.eclipse.cdt.managedbuilder.ui.rcbs.inputtype.1584453668" name="Resource Custom Build Step Input Type">
-								<additionalInput kind="additionalinputdependency" paths=""/>
-							</inputType>
-							<outputType id="org.eclipse.cdt.managedbuilder.ui.rcbs.outputtype.1701604212" name="Resource Custom Build Step Output Type"/>
-						</tool>
-					</fileInfo>
 					<sourceEntries>
 						<entry excluding="rfduino_core/source/libRFduinoGZLL|rfduino_core/system/CMSIS/CMSIS/SVD|rfduino_core/system/CMSIS/CMSIS/RTOS|rfduino_core/system/CMSIS/CMSIS/Lib|rfduino_core/system/CMSIS/CMSIS/DSP_Lib|rfduino_core/system/CMSIS/Device|rfduino_core/libraries/RFduinoNonBLE/examples|rfduino_core/libraries/RFduinoGZLL/examples|rfduino_core/libraries/RFduinoBLE/examples|rfduino_core/libraries/Wire|rfduino_core/libraries/SPI|rfduino_core/libraries/Servo|rfduino_core/iPhone Apps|arduino_libraries" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
 					</sourceEntries>
