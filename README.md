@@ -10,6 +10,7 @@ Template RFDuino Eclipse project using Eclipse CDT
 
 ### Limitations
 * NO source files to build RFduinoSystem, RFduino, RFduinoBLE, RFduinoGZLL
+* unable to get gnuarm settings on eclipse MARS
 
 ### References
 http://www.rfduino.com/
