@@ -43,8 +43,11 @@ extern int RFduinoGZLL_enabled;
 
 // -20 dBm to +4 dBm = default +4 dBm
 int RFduinoGZLL_tx_power_level = 4;
+uint32_t RFduinoGZLL_host_base_address = 0U;
+uint32_t RFduinoGZLL_device_base_address = 0U;
 
 static device_t _device;
+
 
 // 0 = success
 // 1 = init failed
@@ -81,7 +84,23 @@ int RFduinoGZLL_begin(device_t device)
 
   if (! nrf_gzll_set_device_channel_selection_policy(NRF_GZLL_DEVICE_CHANNEL_SELECTION_POLICY_USE_CURRENT))
     return 4;
+ 
+  if (RFduinoGZLL_host_base_address ) {
+   uint8_t msb = RFduinoGZLL_host_base_address >> 24;
+   if (msb == 0x55 || msb == 0xAA)
+     return 5;  // msb of base address should not be alternating 0s and 1s
+	 if ( !nrf_gzll_set_base_address_0(RFduinoGZLL_host_base_address) )
+		return 5;
+  } 
 
+  if (RFduinoGZLL_device_base_address) {
+   uint8_t msb = RFduinoGZLL_device_base_address >> 24;
+   if (msb == 0x55 || msb == 0xAA)
+     return 6;  // msb of base address should not be alternating 0s and 1s
+	 if ( !nrf_gzll_set_base_address_1(RFduinoGZLL_device_base_address) )
+		return 6;
+  }
+	
   if (! nrf_gzll_enable())
     return 3;
 

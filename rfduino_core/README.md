@@ -1,54 +1,68 @@
-### RFduino: Shrunk down an Arduino to the size of a finger-tip and made it Wireless!
+# RFduino: An Arduino shrunk to the size of a finger-tip and made wireless!
 
-![logo](https://raw.github.com/RFduino/RFduino/master/4up%20image.jpg)  
+![logo](https://raw.github.com/RFduino/RFduino/master/4up%20image.jpg)
 
 [Video](http://www.youtube.com/watch?v=arWBdGwCJcM)  
 
-### Installation
+## Communicating with us
 
-* Get the hardware here: [http://RFduino.com](http://RFduino.com)
+The best way to communiate with us is on the [RFduino Forum](http://forum.RFduino.com).
 
-* Download Arduino 1.5 here: [http://arduino.cc](http://arduino.cc/en/Main/Software)  
-  (on osx remember to open arduino first to make gatekeeper perform its magic)  
+## Installation
 
-* Copy the RFduino directory from this repository in Arduino  
-  (on Windows, C:\arduino-1.5.4\hardware\arduino)  
-  (on OSX, /Applications/Arduino.app/Contents/Resources/Java/hardware/arduino)  
-  or "git clone https://github.com/RFduino/RFduino" in the directory indicated
+* Get the [RFduino hardware](http://RFduino.com).
 
-* Install the FTDI drivers from here: [http://ftdichip.com](http://www.ftdichip.com/Drivers/VCP.htm)
+* Install the [FTDI drivers](http://www.ftdichip.com/Drivers/VCP.htm).
 
-Your ready to go!
+* Download [Arduino 1.6.6](http://arduino.cc/en/Main/Software) or newer.
+  * _Mac OS X_: Requires Java 6 to be installed. Available [here](https://support.apple.com/kb/DL1572?locale=en_US).
 
-Detailed instructions are available here: [Quick Start Guide](http://files.rfdigital.com/rfduino.quick.start.guide.pdf)
+* Open Arduino
+  * Edit Preferences, and add ```http://rfduino.com/package_rfduino166_index.json``` to Additional Board Manager URLs and save.
+      ![preferences](preferences.png)
+  * Open the Boards Manager under ```Tools->Board``` menu.
+  * Select the RFduino package at the end of the list, and click Install to install it.
+  * Your new board will now show up in the ```Tools->Board``` menu.
 
-### Getting Started
+Select the board and port, and you're ready to go!
+
+<strong>Note</strong>: Arduino may not start properly if another version has been previously installed and the Preferences are incompatible.  You can reset the Preferences by deleting the following directory:
+* _Windows_: %appdata%/Arduino15 (open File Explorer, enter %appdata% into the Address Bar and press Enter)
+* _Mac OS X_: ~/Library/Arduino15 (open Finder, and ```Go->Go to Folder```)
+* _Linux_: ~/.arduino15
+
+## Linux
+
+```
+// FTDI drivers are not needed (they are built into the kernel)
+
+wget http://downloads.arduino.cc/arduino-1.6.6-linux64.tar.xz
+tar -xf arduino-1.6.6-linux64.tar.xz
+
+Ubuntu: sudo apt-get install default-jre
+Fedora: sudo yum install jre
+OpenSUSE: sudo zypper install jre
+
+// otherwise the com port open will fail with permission denied (you must logout/login for change to take effect)
+sudo usermod -aG dialout <username>
+```
+
+## Getting Started
 
 * Attach the USB shield
 
-* Select RFduino from the Tools/Board menu
+* Select RFduino from the ```Tools->Board``` menu
 
-* Select the port from the Tools/Port menu
+* Select the port from the ```Tools->Port``` menu
 
-* Select an example from the Files/Examples/RFduinoNonBLE or Files/Examples/RFduinoBLE directory
+* Select an example from the ```File->Examples->RFduinoNonBLE``` or ```File->Examples-?RFduinoBLE``` directory
 
-* Select Upload to compile, upload and execute the sketch
+* Select ```Upload``` to compile, upload and execute the sketch
 
-* Down the iPhone example apps from the iPhone App Store (search for "RFduino").
+* Download the iPhone example apps from the iPhone App Store (search for ```RFduino```).
+    * Detailed instructions for the Temperature app are available [here](http://files.rfdigital.com/rfduino.temperature.guide.pdf).
+    * Detailed instructions for the ColorWheel app are available [here](http://files.rfdigital.com/rfduino.rgb.colorwheel.guide.pdf).
 
-Detailed instructions for the Temperature app are available here: [Temperature App](http://files.rfdigital.com/rfduino.temperature.guide.pdf)  
-Detailed instructions for the ColorWheel app are available here: [ColorWheel App](http://files.rfdigital.com/rfduino.rgb.colorwheel.guide.pdf)  
+## RFduinoApps
 
-### Communicating with us
-
-The best way to communiate with us is here: [RFduino Forum](http://forum.RFduino.com).
-
-### A Lot More Coming!
-
-We are working on documentation as fast as we can.  Until then, the best source for documentation is the sketch examples.
-
-This project has been a huge success, and we have many exciting things planned that we want to share with the community.  At the same time, we are unbelievable busy, with a ton going on and lots of small items to clean up.  We are just a small team working on this project ... please bear with us!
-
-We hope you enjoy creating stuff with your RFduino as much as we do!
-
-The RFduino team.
+Check out the [RFduinoApps](http://github.com/RFduino/RFduinoApps) repository for iPhone App source code & RFduino to Raspberry Pi integration projects.
