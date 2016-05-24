@@ -1,5 +1,49 @@
 CHANGELOG
 
+v 2.3.2
+  - Fixes required to support Arduino 1.6.6
+  - Updated to the latest RFDLoaders
+  - Use the RFDLoaders in the RFduino directory (instead of installing seperately in tools)
+
+v 2.3.1
+  - RFduino linux native support (test install on Ubuntu 14.04 32bit & 64bit, Fedora 21,
+    OpenSUSE 13.2)
+  - Created http://github.com/RFduino/RFduinoApps repository for separate installation
+    of projects/previews/demos.  Separate installation should make finding them easier.
+  - Moved iPhone Apps folder to RFduinoApps repository.
+  - Added Raspberry PI folder to RFduinoApps to demonstrate Raspberry PI & RFduino
+    integration.
+
+v 2.3
+  - Fixes required to support Arduino 1.6.3
+    (NOTE: Arduino 1.6.3 or higher is now required for RFduino 2.3 or above).
+  - Include explicit information about Java 6 (thanks  gortok)
+  - fixing analogRead freeze problem + fixing indentation (thanks OrenLederman)
+  - Removing deprecated field in iOS framework and sample projects (thanks SensiBots)
+  - make these virtual (thanks  tripzero)
+  - Remove dependence on UIKit; fix use of deprecated UUID attribute (thanks aeberbach)
+
+v 2.2.4
+  - Reduce compile times with Arduino 1.6 on second and subsequent compiles.
+
+v 2.2.3
+  - GZLL baseAddress enhancement (thanks waynek/jetty840)
+  - Check base address msb is not 0x55 or 0xaa
+  - Updated libRFduinoGZLL keywords.txt
+  - Added DeviceToHostSettings example GZLL sketch
+
+v 2.2.2
+  - Resolved race condition issue with analogRead.
+
+v 2.2.1
+  - Resolved power consumption issues with ULP and analogRead/GZLL.
+  - Update documentation with better specifics as to where you put folder
+    (thanks Helen Holmes).
+  
+v 2.2
+  - Support for nonconnectable advertisement
+  - Corrected temperature comments (thanks DasBasti).
+
 v 2.1.2
   - Support for MIDI BaudRate of 31250 (thanks tolson)
   - Fix so Servo can be moved from TIMER2 to TIMER1 for use with RFduinoGZLL

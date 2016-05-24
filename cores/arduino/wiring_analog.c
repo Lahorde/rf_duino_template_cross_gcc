@@ -109,14 +109,16 @@ uint32_t analogRead(uint32_t ulPin)
               (analog_reference     << ADC_CONFIG_REFSEL_Pos)|    // DEFAULT: Use supply voltage with 1/3 prescaling as reference for conversion. Only usable when supply voltage is between 2.5V and 3.6V
               (pselValue        << ADC_CONFIG_PSEL_Pos)|    // Select ADC input
               (ADC_CONFIG_EXTREFSEL_None  << ADC_CONFIG_EXTREFSEL_Pos);
-		NRF_ADC->INTENCLR = 0xFFFFFFFF;
-		NRF_ADC->ENABLE = 	(ADC_ENABLE_ENABLE_Enabled 		<< ADC_ENABLE_ENABLE_Pos);		// Enable ADC
-		NRF_ADC->TASKS_START = 	1;															// Start A-D conversion
-		while ((NRF_ADC->BUSY & ADC_BUSY_BUSY_Msk) == (ADC_BUSY_BUSY_Busy << ADC_BUSY_BUSY_Pos))	// Wait for end of conversion
-			;
+	NRF_ADC->INTENCLR = 0xFFFFFFFF;
+	NRF_ADC->ENABLE = 	(ADC_ENABLE_ENABLE_Enabled 		<< ADC_ENABLE_ENABLE_Pos);		// Enable ADC
+    NRF_ADC->EVENTS_END = 0;															// Reset end flag
+	NRF_ADC->TASKS_START = 	1;															// Start A-D conversion
+    while (! NRF_ADC->EVENTS_END)  // Wait for end of conversion
+      ;
 		ulValue = NRF_ADC->RESULT;															// Read the value
 		ulValue = mapResolution(ulValue, ADC_RESOLUTION, _readResolution);
 		NRF_ADC->ENABLE =	(ADC_ENABLE_ENABLE_Disabled 	<< ADC_ENABLE_ENABLE_Pos);		// Disable ADC
+    NRF_ADC->TASKS_STOP = 1;
 		// GPIOs release regarding PAN028
 		NRF_ADC->CONFIG = 	(ADC_CONFIG_RES_8bit << ADC_CONFIG_RES_Pos) |
 							(ADC_CONFIG_INPSEL_SupplyTwoThirdsPrescaling << ADC_CONFIG_INPSEL_Pos) |
